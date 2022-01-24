@@ -1,0 +1,263 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <title>Audio samples from "ZERO-SHTOT CROSS-LINGUAL TRANSFER USING MULTI-STREAM ENCODER AND EFFICIENT SPEAKER REPRESENTATION"</title>
+    <link rel="stylesheet" href="../../stylesheet.css">
+    <link rel="shortcut icon" href="../../images/taco.png">
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Audio samples from "ZERO-SHTOT CROSS-LINGUAL TRANSFER USING MULTI-STREAM ENCODER AND EFFICIENT SPEAKER REPRESENTATION"</h1>
+      </header>
+    </article>
+
+    <p><b>Authors</b>: Yibin Zheng, Zewang Zhang, Xinhui Li, Wenchao Su and Li Lu</p>
+
+    <div><b>Abstract:</b> We propose a novel method for zero-shot cross-lingual TTS task by using multi-stream text encoder and efficient speaker representation. Specifically, a unified multi-stream text encoder that takes both advantages of Transformer and CBHG is proposed to retain multiple hypotheses about input representations. For Transformer based stream, a multi-stream Transformer is further proposed to strengthen these hypotheses. Then the speaker representations are extracted from audio signals by a speaker encoder with a random sampling mechanism and a language  adversarial loss, aiming to extract speaker embedding features that are independent of both content information and language identity. Meanwhile, we propose an efficient zero-shot  cross-lingual transfer strategy with the help of other target lingual speakers' data and a language-balanced  sampling strategy.  The Experimental results show the proposed method  not only could achieve higher speech quality and speaker similarity (with an average absolute improvement of 0.38 and 0.27 in MOS respectively) for zero-shot cross-lingual transfer, but also helpful for few-shot  cross-lingual transfer in   which has multi-lingual data.</div>
+
+
+
+    <div>
+      <a name="neural_vocoder"><h2>Evaluation of Zero-shot Cross-lingual Transfer</h2></a>
+      <div>
+        In this section, we adapt our models to two unseen Chinese speakers (including 1 male and 1 female) without any English data firstly. Each speaker recorded 400 Chinese utterances.
+      </div>
+      <a name="neural_vocoder.style_selection"><h3>1. Evaluation of multi-stream encoder</h3></a>
+
+      <div class="text_gst">Text: “有意思的是，让Arizona对Mark改观的那个人竟是Alex。 (you3 yi4 si5 de5 shi4 rang4 Arizona dui4 Mark gai3 guan1 de5 na4 ge5 ren2 jing4 shi4 Alex)”</div>
+      <table><tbody>
+        <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-03.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-03.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “她不再听信Damon的挑唆转而相信Stefan。(ta1 bu2 zai4 ting1 xin4 Damon de5 tiao3 suo1 zhuan3 er2 xiang1 xin4 Stefan)”</div>
+      <table><tbody>
+        <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-11.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-11.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “《米兰体育报》透露，托尼成为AC米兰主要猎物。(mi3 lan2 ti3 yv4 bao4 tou4 lu4 tuo1 ni2 cheng2 wei2 AC mi3 lan2 zhu3 yao4 lie4 wu4)”</div>
+      <table><tbody>
+        <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-14.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-14.wav"></audio></td></tr>
+     </tbody></table>
+       <div class="text_gst">Text: “搭配可爱图案白Tee，甜美又可爱。(da1 pei4 ke3 ai4 tu2 an4 bai2  Tee  tian2 mei3 you4 ke3 ai4 )”</div>
+      <table><tbody>
+        <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-19.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-19.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “在人物方面，Murphy保证Puck和Rachel的浪漫还会上演。(zai4 ren2 wu4 fang1 mian4 Murphy bao3 zheng4 Puck he2 Rachel de5 lang4 man4 hai2 hui4 shang4 yan3)”</div>
+      <table><tbody>
+	  <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-22.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-22.wav"></audio></td></tr>
+       </tbody></table>
+     <div class="text_gst">Text: “Harry Potter is a series of fantasy novels written by British author J.”</div>
+      <table><tbody>
+        <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-26.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-26.wav"></audio></td></tr>
+      </tbody></table>
+		<div class="text_gst">Text: “overthrow the wizard governing body known as the Ministry of Magic and subjugate all.”</div>
+      <table><tbody>
+        <tr><td>CBHG</td><td><audio controls=""><source src="sample/multi/baseline/eval-30.wav"></audio></td><td>Multi-stream</td><td><audio controls=""><source src="sample/multi/proposed/eval-30.wav"></audio></td></tr>
+		</tbody></table>
+	  
+      <a name="neural_vocoder.style_selection"><h3>2. Evaluation of speaker representation methods</h3></a>
+      <div class="text_gst">Text: “有意思的是，让Arizona对Mark改观的那个人竟是Alex。 (you3 yi4 si5 de5 shi4 rang4 Arizona dui4 Mark gai3 guan1 de5 na4 ge5 ren2 jing4 shi4 Alex)”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-03.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-03.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “而Bulgari也是拜Taylor的宣传。(er2 Bulgari ye3 shi4 bai4  Taylor de5 xvan1 chuan2)”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-09.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-09.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “她不再听信Damon的挑唆转而相信Stefan。(ta1 bu2 zai4 ting1 xin4 Damon de5 tiao3 suo1 zhuan3 er2 xiang1 xin4 Stefan)”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-11.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-11.wav"></audio></td></tr>
+     </tbody></table>
+       <div class="text_gst">Text: “搭配可爱图案白Tee，甜美又可爱。(da1 pei4 ke3 ai4 tu2 an4 bai2  Tee  tian2 mei3 you4 ke3 ai4 )”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-19.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-19.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “在人物方面，Murphy保证Puck和Rachel的浪漫还会上演。(zai4 ren2 wu4 fang1 mian4 Murphy bao3 zheng4 Puck he2 Rachel de5 lang4 man4 hai2 hui4 shang4 yan3)”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-22.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-22.wav"></audio></td></tr>
+      <table><tbody> 
+    <div class="text_gst">Text: “Harry Potter is a series of fantasy novels written by British author J.”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-26.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-26.wav"></audio></td></tr>
+      </tbody></table>
+		<div class="text_gst">Text: “overthrow the wizard governing body known as the Ministry of Magic and subjugate all.”</div>
+      <table><tbody>
+        <tr><td>One-hot</td><td><audio controls=""><source src="sample/speaker/baseline/eval-30.wav"></audio></td><td>Proposed-SE</td><td><audio controls=""><source src="sample/speaker/proposed/eval-30.wav"></audio></td></tr> 
+		</tbody></table>
+	  
+      <a name="neural_vocoder.style_selection"><h3>3. Evaluation of the zero-shot cross-lingual transfer strategies</h3></a>
+      <div class="text_gst">Text: “有意思的是，让Arizona对Mark改观的那个人竟是Alex。 (you3 yi4 si5 de5 shi4 rang4 Arizona dui4 Mark gai3 guan1 de5 na4 ge5 ren2 jing4 shi4 Alex)”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-03.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-03.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “而Bulgari也是拜Taylor的宣传。(er2 Bulgari ye3 shi4 bai4  Taylor de5 xvan1 chuan2)”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-09.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-09.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “她不再听信Damon的挑唆转而相信Stefan。(ta1 bu2 zai4 ting1 xin4 Damon de5 tiao3 suo1 zhuan3 er2 xiang1 xin4 Stefan)”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-11.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-11.wav"></audio></td></tr>
+     </tbody></table>
+       <div class="text_gst">Text: “搭配可爱图案白Tee，甜美又可爱。(da1 pei4 ke3 ai4 tu2 an4 bai2  Tee  tian2 mei3 you4 ke3 ai4 )”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-19.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-19.wav"></audio></td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “在人物方面，Murphy保证Puck和Rachel的浪漫还会上演。(zai4 ren2 wu4 fang1 mian4 Murphy bao3 zheng4 Puck he2 Rachel de5 lang4 man4 hai2 hui4 shang4 yan3)”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-22.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-22.wav"></audio></td></tr>
+      <table><tbody> 
+    <div class="text_gst">Text: “Harry Potter is a series of fantasy novels written by British author J.”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-26.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-26.wav"></audio></td></tr>
+      </tbody></table>
+		<div class="text_gst">Text: “overthrow the wizard governing body known as the Ministry of Magic and subjugate all.”</div>
+      <table><tbody>
+        <tr><td>Baseline</td><td><audio controls=""><source src="sample/training/baseline/eval-30.wav"></audio></td><td>Proposed</td><td><audio controls=""><source src="sample/training/proposed/eval-30.wav"></audio></td></tr> 
+		</tbody></table>
+
+
+      <a name="neural_vocoder.style_selection"><h3>Extension to Few-shot Cross-lingual Transfer</h3></a>
+	  
+      <a name="neural_vocoder.style_selection"><h3>1. Few-shot Cross-lingual Transfer</h3></a>	  
+    <div>
+	   The second experiment is to build bilingual TTS models for two unseen speakers, with each speaker recorded 1,000 Chinese utterances and 300 English utterances.
+    </div>  
+    </div>
+	</h3>	
+	
+    <div class="text_gst">Text: “有意思的是，让Arizona对Mark改观的那个人竟是Alex。 (you3 yi4 si5 de5 shi4 rang4 Arizona dui4 Mark gai3 guan1 de5 na4 ge5 ren2 jing4 shi4 Alex)”</div>
+      <table><tbody>
+    <table>
+      <tbody>
+        <tr>
+          <th># Model</th>
+          <th>Baseline</th>
+          <th>Proposed</th>
+        </tr>
+        <tr><td>female-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline/eval-03.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-03.wav"></audio></td>
+        </tr>
+        <tr><td>male-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline1/eval-03.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed1/eval-03.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+     <div class="text_gst">Text: “而Bulgari也是拜Taylor的宣传。(er2 Bulgari ye3 shi4 bai4  Taylor de5 xvan1 chuan2)”</div>
+    <table>
+      <tbody>
+        <tr>
+          <th># Model</th>
+          <th>Baseline</th>
+          <th>Proposed</th>
+        </tr>
+        <tr><td>female-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline/eval-09.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-09.wav"></audio></td>
+        </tr>
+        <tr><td>male-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline1/eval-09.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed1/eval-09.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text_gst">Text: “另一个verbal section与这个部分相仿，也不再赘述。(ling4 yi2 ge4 verbal section yv3 zhe4 ge5 bu4 fen5 xiang1 fang3 ye3 bu2 zai4 zhui4 shu4)”</div>
+    <table>
+      <tbody>
+        <tr>
+          <th># Model</th>
+          <th>Baseline</th>
+          <th>Proposed</th>
+        </tr>
+        <tr><td>female-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline/eval-13.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-13.wav"></audio></td>
+        </tr>
+        <tr><td>male-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline1/eval-13.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed1/eval-13.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text_gst">Text: “即使是Eric的跟班，Pam也毫不畏惧，直面Eric的权威。(ji2 shi3 shi4 Eric de5 gen1 ban1 Pam ye3 hao2 bu2 wei4 jv4 zhi2 mian4 Eric de5 qvan2 wei1)”</div>
+    <table>
+      <tbody>
+        <tr>
+          <th># Model</th>
+          <th>Baseline</th>
+          <th>Proposed</th>
+        </tr>
+        <tr><td>female-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline/eval-21.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-21.wav"></audio></td>
+        </tr>
+        <tr><td>male-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline1/eval-21.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-21.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text_gst">Text: “Harry Potter is a series of fantasy novels written by British author J.”</div>
+    <table>
+      <tbody>
+        <tr>
+          <th># Model</th>
+          <th>Baseline</th>
+          <th>Proposed</th>
+        </tr>
+        <tr><td>female-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline/eval-26.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-26.wav"></audio></td>
+        </tr>
+        <tr><td>male-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline1/eval-26.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed1/eval-26.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text_gst">Text: “overthrow the wizard governing body known as the Ministry of Magic and subjugate all.”</div>
+    <table>
+      <tbody>
+        <tr>
+          <th># Model</th>
+          <th>Baseline</th>
+          <th>Proposed</th>
+        </tr>
+        <tr><td>female-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline/eval-30.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed/eval-30.wav"></audio></td>
+        </tr>
+        <tr><td>male-bi</td>
+          <td><audio controls=""><source src="sample/few-shot/baseline1/eval-30.wav"></audio></td>
+          <td><audio controls=""><source src="sample/few-shot/proposed1/eval-30.wav"></audio></td>
+        </tr>
+      </tbody>
+    </table>
+
+      <a name="neural_vocoder.style_selection"><h3>2. mono-lingual VS. multi-lingual</h3></a>
+    <div>
+      Apart from that, we also train a mono-lingual multi-speaker English TTS model and adapt it with the 300 English utterances above. 
+    </div>		
+		
+     <div class="text_gst">Text: “wizards and Muggles (non-magical people).”</div>
+      <table><tbody>
+        <tr><td>mono-lingual</td><td><audio controls=""><source src="sample/English/baseline/eval-05.wav"></audio></td><td>multi-lingual</td><td><audio controls=""><source src="sample/English/proposed/eval-05.wav"></audio></td><td></tr>
+      </tbody></table>
+      <div class="text_gst">Text: “the books have found immense popularity.”</div>
+      <table><tbody>
+        <tr><td>mono-lingual</td><td><audio controls=""><source src="sample/English/baseline/eval-07.wav"></audio></td><td>multi-lingual</td><td><audio controls=""><source src="sample/English/proposed/eval-07.wav"></audio></td><td></tr>
+       </tbody></table>     
+	  <div class="text_gst">Text: “critical acclaim and commercial success worldwide.”</div>
+      <table><tbody>
+        <tr><td>mono-lingual</td><td><audio controls=""><source src="sample/English/baseline/eval-08.wav"></audio></td><td>multi-lingual</td><td><audio controls=""><source src="sample/English/proposed/eval-08.wav"></audio></td><td></tr> 
+      </tbody></table> 
+      <div class="text_gst">Text: “They have attracted a wide adult audience as well as younger readers and are often considered.”</div>
+      <table><tbody>
+        <tr><td>mono-lingual</td><td><audio controls=""><source src="sample/English/baseline/eval-09.wav"></audio></td><td>multi-lingual</td><td><audio controls=""><source src="sample/English/proposed/eval-09.wav"></audio></td><td></tr>
+      </tbody></table>
+		<div class="text_gst">Text: “set records as the fastest-selling books in history”</div>
+      <table><tbody>
+        <tr><td>mono-lingual</td><td><audio controls=""><source src="sample/English/baseline/eval-10.wav"></audio></td><td>multi-lingual</td><td><audio controls=""><source src="sample/English/proposed/eval-10.wav"></audio></td><td></tr>
+      </tbody></table>
+	 
+</body></html>
